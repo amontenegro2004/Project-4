@@ -1,12 +1,22 @@
 package cont;
 import javax.swing.JOptionPane;
 public class Main {
+	/* Main method to run the program and the method below.
+	*/
 	public static void main(String[] args) {
 		hello();
 	}
+	/* Method that controls the game rules and interface. Starts off with making the 
+	* window and then gives an option box, that has what dice roll you would like to change.
+	* If not, then it takes you to an input box that asks what rol you want to increase the value of.
+	* If so, it will randomize the dice you choose and then repeat the process as stated before.
+	* After, 3 rounds, to win you have to get 50 points. If you have it, then you won and asks if
+	* you want to play again. If not, then you lose.
+	*/
 	public static void hello() {
 		
 		JOptionPane.showMessageDialog(null, "Welcome to One Player Yahtzee");
+		//INSTANCE VARIABLES
 		int x =0;
 		int rolls2 = 1;
 		int score2=0;
@@ -20,6 +30,7 @@ public class Main {
 		boolean sixuse=false;
 	
 		while(rolls2 <=3) {
+			//INSTANCE VARIABLES
 			int num1 = (int)(Math.random()*6 +1);
 			int num2 = (int)(Math.random()*6 +1);
 			int num3 = (int)(Math.random()*6 +1);
@@ -154,35 +165,6 @@ public class Main {
 				x = x +num1+ num2+num3 +num4+num5-25;
 							}
 			
-			/*
-			if(ones(score,num1,num2,num3,num4,num5)*1 == 3 && (twos(score,num1,num2,num3,num4,num5)*2 ==4 ||threes(score,num1,num2,num3,num4,num5)*3 ==6||fours(score,num1,num2,num3,num4,num5)*4 ==8||fives(score,num1,num2,num3,num4,num5)*5 ==10||sixes(score,num1,num2,num3,num4,num5)*6 ==12) ){
-				JOptionPane.showMessageDialog(null, "You got a full house");
-				x = x +25;
-			}
-			if(twos(score,num1,num2,num3,num4,num5)*2 == 6 && (ones(score,num1,num2,num3,num4,num5)*1 ==2 ||threes(score,num1,num2,num3,num4,num5)*3 ==6||fours(score,num1,num2,num3,num4,num5)*4 ==8||fives(score,num1,num2,num3,num4,num5)*5 ==10||sixes(score,num1,num2,num3,num4,num5)*6 ==12) ){
-				JOptionPane.showMessageDialog(null, "You got a full house");
-				x = x +25;
-			}
-
-			if(threes(score,num1,num2,num3,num4,num5)*3 == 9 && (ones(score,num1,num2,num3,num4,num5)*1 ==2 ||twos(score,num1,num2,num3,num4,num5)*2 ==4||fours(score,num1,num2,num3,num4,num5)*4 ==8||fives(score,num1,num2,num3,num4,num5)*5 ==10||sixes(score,num1,num2,num3,num4,num5)*6 ==12) ){
-				JOptionPane.showMessageDialog(null, "You got a full house");
-				x = x +25;
-			}
-			if(fours(score,num1,num2,num3,num4,num5)*4 == 12 && (ones(score,num1,num2,num3,num4,num5)*1 ==2 ||threes(score,num1,num2,num3,num4,num5)*3 ==6||twos(score,num1,num2,num3,num4,num5)*2 ==4||fives(score,num1,num2,num3,num4,num5)*5 ==10||sixes(score,num1,num2,num3,num4,num5)*6 ==12) ){
-				JOptionPane.showMessageDialog(null, "You got a full house");
-				x = x +25;
-			}
-			if(fives(score,num1,num2,num3,num4,num5)*5 == 15 && (ones(score,num1,num2,num3,num4,num5)*1 ==2 ||threes(score,num1,num2,num3,num4,num5)*3 ==6||fours(score,num1,num2,num3,num4,num5)*4 ==8||twos(score,num1,num2,num3,num4,num5)*2 ==4||sixes(score,num1,num2,num3,num4,num5)*6 ==12) ){
-				JOptionPane.showMessageDialog(null, "You got a full house");
-				x = x +25;
-			}
-			if(sixes(score,num1,num2,num3,num4,num5)*6 == 18 && (ones(score,num1,num2,num3,num4,num5)*1 ==2 ||threes(score,num1,num2,num3,num4,num5)*3 ==6||fours(score,num1,num2,num3,num4,num5)*4 ==8||fives(score,num1,num2,num3,num4,num5)*5 ==10||twos(score,num1,num2,num3,num4,num5)*2 ==4) ){
-				JOptionPane.showMessageDialog(null, "You got a full house");
-				x = x +25 ;
-			}
-			
-			*/
-			
 			
 			
 			
@@ -252,18 +234,7 @@ public class Main {
 			
 			
 			if(x >= 50) {
-				/*
-				JOptionPane.showMessageDialog(null, "You won a Yahtzee");
 				
-				String f = w.in("Dp you want to go again?\n(Enter 1 for yes)\n(And 2 for no)");
-				int u = Integer.parseInt(f);
-				if(u==1) {
-					repeat = true;
-				}
-				if(u ==2) {
-					repeat=false;
-				}
-				*/
 				JOptionPane.showMessageDialog(null, "You won a Yahtzee");
 				String f=JOptionPane.showInputDialog("Do you want to play again");
 				if(f.equalsIgnoreCase("yes")){
@@ -307,19 +278,16 @@ public class Main {
 						JOptionPane.showMessageDialog(null, "You need to type YES or NO");
 					}
 				}
-				/*
-				String f = w.in("Dp you want to go again?\n(1==Yes)\n(2==No)");
-				int u = Integer.parseInt(f);
-				if(u ==2) {
-					repeat=false;
-				}
-				*/
+				
 			}
 			rolls2++;
 		}
 		
 	}
 	
+	/* Checks if the roll is greater than seven, if so, remove one 
+	* because the max roll is a 6.
+	*/
 	public static int ifSeven(int x) {
 		if(x>6) {
 			x--;
@@ -327,6 +295,10 @@ public class Main {
 		return x;
 	}
 	
+	/* Method to be use to describe what the buttons are used for. If its the 9th button, 
+	* it exits the program. If its the 8th button, then it displays a help section. Finally,
+	* if its the 7th button, then it takes you to not change anythign for your roll.
+	*/
 	public static void buttons(int result,int Rolls) {
 		if(result ==8) {
 			System.exit(0);
@@ -340,7 +312,9 @@ public class Main {
 		}
 	}
 	
-	//Change result 2 to return 2
+	/* If the value of the returned value is a number, then set then parameters for each number equal to
+	*  a random value of a roll.
+	*/
 	public static void reRoll(int score, int return2, int num1, int num2, int num3, int num4, int num5) {
 		if(return2 ==1) {
 			num1 = (int)(Math.random()*6 +1);
@@ -359,6 +333,10 @@ public class Main {
 		}
 		
 	}
+	/* If the roll for each dice is equal to one, then add one to a counter 
+	* of ones. Then it returns the number of ones that was played in the 
+	* round.
+	*/
 	public static int ones(int score, int num1, int num2, int num3, int num4, int num5) {
 		int ones = 0;
 		if(num1==1) {
@@ -379,7 +357,10 @@ public class Main {
 		
 		return ones;
 	}
-	
+	/* If the roll for each dice is equal to two, then add one to a counter 
+	* of twos. Then it returns the number of twos that was played in the 
+	* round.
+	*/
 	public static int twos(int score, int num1, int num2, int num3, int num4, int num5) {
 		int twos = 0;
 		if(num1==2) {
@@ -400,7 +381,10 @@ public class Main {
 		return twos;
 	}
 	
-	
+	/* If the roll for each dice is equal to three, then add one to a counter 
+	* of threes. Then it returns the number of threes that was played in the 
+	* round.
+	*/
 	public static int threes(int score, int num1, int num2, int num3, int num4, int num5) {
 		int threes = 0;
 		if(num1==3) {
@@ -420,7 +404,10 @@ public class Main {
 		}
 		return threes;
 	}
-	
+	/* If the roll for each dice is equal to four, then add one to a counter 
+	* of fours. Then it returns the number of fours that was played in the 
+	* round.
+	*/
 	public static int fours(int score, int num1, int num2, int num3, int num4, int num5) {
 		int fours = 0;
 		if(num1==4) {
@@ -440,6 +427,10 @@ public class Main {
 		}
 		return fours;
 	}
+	/* If the roll for each dice is equal to five, then add one to a counter 
+	* of fives. Then it returns the number of fives that was played in the 
+	* round.
+	*/
 	public static int fives(int score, int num1, int num2, int num3, int num4, int num5) {
 		int fives = 0;
 		if(num1==5) {
@@ -459,6 +450,10 @@ public class Main {
 		}
 		return fives;
 	}
+	/* If the roll for each dice is equal to six, then add one to a counter 
+	* of sixes. Then it returns the number of sixes that was played in the 
+	* round.
+	*/
 	public static int sixes(int score, int num1, int num2, int num3, int num4, int num5) {
 		int sixes = 0;
 		if(num1==6) {
@@ -479,22 +474,45 @@ public class Main {
 		return sixes;
 	}
 	
+	/* Sets the value of increasing the value of one
+	* equal to true, if you chose to increase its
+	* value.
+	*/
 	public static void ones2(boolean oneuse) {
 		oneuse = true;
 	}
-	
+	/* Sets the value of increasing the value of three
+	* equal to true, if you chose to increase its
+	* value.
+	*/
 	public static void threes2(boolean threeuse) {
 		threeuse = true;
 	}
+	/* Sets the value of increasing the value of two
+	* equal to true, if you chose to increase its
+	* value.
+	*/
 	public static void twos2(boolean twouse) {
 		twouse = true;
 	}
+	/* Sets the value of increasing the value of four
+	* equal to true, if you chose to increase its
+	* value.
+	*/
 	public static void fours2(boolean fouruse) {
 		fouruse = true;
 	}
+	/* Sets the value of increasing the value of five
+	* equal to true, if you chose to increase its
+	* value.
+	*/
 	public static void fives2(boolean fiveuse) {
 		fiveuse = true;
 	}
+	/* Sets the value of increasing the value of six
+	* equal to true, if you chose to increase its
+	* value.
+	*/
 	public static void sixes2(boolean sixuse) {
 		sixuse = true;
 	}
